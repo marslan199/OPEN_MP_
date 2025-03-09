@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <omp.h>       // Include OpenMP header for parallelism
-#include <time.h>      // For clock() to calculate execution time
+#include <omp.h>       
+#include <time.h>      
 
 // Function to perform parallel bubble sort
 void parallelBubbleSort(int arr[], int n) {
@@ -9,7 +9,6 @@ void parallelBubbleSort(int arr[], int n) {
         #pragma omp parallel for
         for (int j = 0; j < n - 1 - i; j++) {
             if (arr[j] > arr[j + 1]) {
-                // Swap the elements
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
@@ -26,9 +25,9 @@ void printArray(int arr[], int n) {
     printf("\n");
 }
 
-// Function to calculate execution time
+
 double calculateExecutionTime(clock_t start, clock_t end) {
-    // Return the elapsed time in seconds
+    
     return ((double)(end - start)) / CLOCKS_PER_SEC;
 }
 
